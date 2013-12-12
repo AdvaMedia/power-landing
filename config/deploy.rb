@@ -6,7 +6,7 @@ task :copy_database_config, roles => :app do
   run "cp #{db_config} #{release_path}/config/mongoid.yml"
 end
 
-load 'deploy/assets'
+# load 'deploy/assets'
 
 ssh_options[:forward_agent] = true
 

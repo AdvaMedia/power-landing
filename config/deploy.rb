@@ -30,7 +30,7 @@ set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake"
 set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
 set :scm,             :git
-set :repository,      "git@github.com:AdvaMedia/power-landing.git"
+set :repository,      "https://github.com/AdvaMedia/power-landing.git"
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do

@@ -276,6 +276,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth (~> 4.2.9)
   capistrano (~> 2.x)
   coffee-rails (~> 3.2.1)
   compass-rails

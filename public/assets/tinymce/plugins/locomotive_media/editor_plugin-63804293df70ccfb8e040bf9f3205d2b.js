@@ -1,0 +1,8 @@
+/**
+ * LocomotiveMedia plugin
+ *
+ * Copyright 2011, Didier Lafforgue
+ * Released under MIT License.
+ *
+ */
+!function(){var e=function(e,t){var i,n={};if(tinymce.isWebKit&&e.getWin().focus(),t.get("image")?tinymce.extend(n,{src:t.get("url")}):tinymce.extend(n,{href:t.get("url")}),i=e.selection.getNode(),!i||"IMG"!=i.nodeName&&"A"!=i.nodeName){if(t.get("image"))e.execCommand("mceInsertContent",!1,'<img id="__mce_tmp" />',{skip_undo:1});else{var r=e.selection.getContent();""==r?(r=t.get("filename"),e.execCommand("mceInsertContent",!1,'<a id="__mce_tmp" href="#">'+r+"</a>",{skip_undo:1})):e.execCommand("mceReplaceContent",!1,' <a id="__mce_tmp" href="#">'+r+"</a>",{skip_undo:1})}e.dom.setAttribs("__mce_tmp",n),e.dom.setAttrib("__mce_tmp","id",""),e.undoManager.add()}else e.dom.setAttribs(i,n)};tinymce.create("tinymce.plugins.LocomotiveMediaPicker",{init:function(t){view=new Locomotive.Views.ContentAssets.PickerView({collection:new Locomotive.Models.ContentAssetsCollection}),view.render(),t.addCommand("locomotiveMedia",function(){view.options.on_select=function(i){e(t,i),view.close()},view.fetch_assets()}),t.addButton("locomotive_media",{title:"locomotive_media.image_desc",cmd:"locomotiveMedia"})},getInfo:function(){return{longname:"Locomotive Media Picker",author:"Didier Lafforgue",authorurl:"http://www.locomotivecms.com",infourl:"http://www.locomotivecms.com",version:tinymce.majorVersion+"."+tinymce.minorVersion}}}),tinymce.PluginManager.requireLangPack("locomotive_media"),tinymce.PluginManager.add("locomotive_media",tinymce.plugins.LocomotiveMediaPicker)}();

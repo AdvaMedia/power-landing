@@ -63,6 +63,7 @@ PowerLanding::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
     :address        => 'smtp.locum.ru',
     :port           => 25,
     :authentication => :plain,

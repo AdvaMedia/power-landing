@@ -19,7 +19,7 @@ after "deploy:update_code", :copy_figaro_config
 ssh_options[:forward_agent] = true
 
 set :application,     "power-landing"
-set :deploy_server,   "lithium.locum.ru"
+set :deploy_server,   "hydrogen.locum.ru"
 set :bundle_without,  [:development, :test]
 
 set :user,            "hosting_saratovsource"

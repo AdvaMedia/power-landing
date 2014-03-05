@@ -6,6 +6,14 @@ task :copy_database_config, roles => :app do
   run "cp #{db_config} #{release_path}/config/mongoid.yml"
 end
 
+task :copy_figaro_config, roles => :app do
+  figaro_config = "#{shared_path}/application.yml"
+  run "cp #{figaro_config} #{release_path}/config/application.yml"
+end
+
+after "deploy:update_code", :copy_figaro_config
+
+
 # load 'deploy/assets'
 
 ssh_options[:forward_agent] = true
@@ -34,10 +42,10 @@ set :repository,      "https://github.com/AdvaMedia/power-landing.git"
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
-    set :current_release, latest_release
+  set :current_release, latest_release
 end
 
-  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 # - for unicorn - #

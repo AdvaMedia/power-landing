@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 gem 'locomotive_cms', github: 'locomotivecms/engine'
 gem 'RedCloth', '~>4.2.9'
+gem 'figaro', github: 'laserlemon/figaro'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

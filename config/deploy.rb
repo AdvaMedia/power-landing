@@ -11,7 +11,11 @@ task :copy_figaro_config, roles => :app do
   run "cp #{figaro_config} #{release_path}/config/application.yml"
 end
 
-after "deploy:update_code", :copy_figaro_config
+task :symlink_sites, roles => :app do
+  run "ln -s #{shared_path}/sites #{release_path}/public/sites"
+end
+
+after "deploy:update_code", :copy_figaro_config, :symlink_sites
 
 
 # load 'deploy/assets'

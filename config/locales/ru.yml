@@ -1,0 +1,6 @@
+---
+ru:
+  locomotive:
+    notifications:
+      new_content_entry:
+        subject: "[%{type}] - Появился новый элемент"

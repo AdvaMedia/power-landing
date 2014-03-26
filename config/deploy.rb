@@ -22,12 +22,12 @@ after "deploy:update_code", :copy_figaro_config, :symlink_sites
 
 ssh_options[:forward_agent] = true
 
-set :application,     "power-landing"
-set :deploy_server,   "hydrogen.locum.ru"
+set :application,     "powersaratov"
+set :deploy_server,   "phosphorus.locum.ru"
 set :bundle_without,  [:development, :test]
 
-set :user,            "hosting_saratovsource"
-set :login,           "saratovsource"
+set :user,            "hosting_alexshow"
+set :login,           "alexshow"
 set :use_sudo,        false
 set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
